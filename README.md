@@ -17,3 +17,5 @@ model name is singular and starts with capital letter
 
 php artisan make:model Religion -m //create model and migration file
 php artisan make:controller NameOfTheController
+
+php artisan make:request CreateReligionRequest
