@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ClassInfo;
 use Illuminate\Http\Request;
+use App\Http\Requests\ClassInfoRequest;
 
 class ClassInfoController extends Controller
 {
@@ -19,7 +20,7 @@ class ClassInfoController extends Controller
                 ], 201);
         
     }
-    public function create(Request $request){
+    public function create(ClassInfoRequest $request){
         try{
             $classInfo = new ClassInfo();
             $classInfo->name = $request->name;

@@ -12,7 +12,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::controller(ReligionController::class)->group(function () {
     Route::get('/religion', 'index')->name('religion.index');
-    Route::post('/religion', 'insert')->name('religion.insert');
+    Route::post('/religion/store', 'store')->name('religion.store');
     Route::put('/religion/{religion}', 'edit')->name('religion.edit');
     Route::delete('/religion/{religion}', 'delete')->name('religion.delete');
 });

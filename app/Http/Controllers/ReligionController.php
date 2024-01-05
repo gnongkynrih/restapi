@@ -17,12 +17,11 @@ class ReligionController extends Controller
                 "data" => "No records found"
             ], 404);
         else
-            
             return response()->json([
-                "data" => $data, 
+                "data" => $religion, 
             ], 201);
     }
-    public function insert(Request $req)
+    public function store(CreateReligionRequest $req)
     {
         try{
             $religion = new Religion();
@@ -35,7 +34,7 @@ class ReligionController extends Controller
         }catch(Exception $e){
             return response()->json([
                 "message" => "Religion record not created"
-            ], 404);
+            ], 500);
         }
     }
     public function edit(Request $request,Religion $religion)
