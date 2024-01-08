@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\ClassInfo;
 use Illuminate\Http\Request;
 use App\Http\Requests\ClassInfoRequest;
+use App\Http\Resources\ClassInfoResource;
 
 class ClassInfoController extends Controller
 {
@@ -16,7 +17,7 @@ class ClassInfoController extends Controller
                 ], 404);
             else
                 return response()->json([
-                    "data" => $classInfo, 
+                    "data" =>ClassInfoResource::collection($classInfo), 
                 ], 201);
         
     }

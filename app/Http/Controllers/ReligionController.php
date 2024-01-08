@@ -5,10 +5,23 @@ namespace App\Http\Controllers;
 use App\Models\Religion;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\ReligionResource;
 use App\Http\Requests\CreateReligionRequest;
 
 class ReligionController extends Controller
 {
+    public function select($id){
+        //select * from religion where id = $id
+        $religion = Religion::find($id);
+        if($religion == null)
+            return response()->json([
+                "data" => "No records found"
+            ], 404);
+        else
+            return response()->json([
+                "data" => new ReligionResource($religion), 
+            ], 201);
+    }
     public function index(){
         //select * from religion
         $religion = Religion::all();
@@ -18,7 +31,7 @@ class ReligionController extends Controller
             ], 404);
         else
             return response()->json([
-                "data" => $religion, 
+                "data" => ReligionResource::collection($religion), 
             ], 201);
     }
     public function store(CreateReligionRequest $req)

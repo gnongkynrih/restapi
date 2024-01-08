@@ -19,3 +19,8 @@ php artisan make:model Religion -m //create model and migration file
 php artisan make:controller NameOfTheController
 
 php artisan make:request CreateReligionRequest
+
+php artisan make:resource
+Assignment:
+todo app
+table-- tasks (id,taskname,is_completed)

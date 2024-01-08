@@ -15,13 +15,16 @@ class CreateReligionRequest extends FormRequest
     public function rules():array
     {
         return [
-            'name' => 'required|string|max:3',
+            'name' => 'required|string|min:2|max:3',
         ];
     }
     public function messages(){
         return [
-            'name.required' => 'Name is required',
-            'name.max' => 'Name should be maximum 3 characters',
+            'name.required' => 'Name is mandatory',
+            'name.string' => 'Name must be string',
+            'name.min' => 'Name must be at least 2 characters',
+            'name.max' => 'Name must be at most 3 characters',
         ];
     }
+    
 }
