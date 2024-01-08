@@ -1,4 +1,5 @@
 github.com/gnongkynrih
+restapi
 
 localhost:8000 //default port is 8000
 create database dbname

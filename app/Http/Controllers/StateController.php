@@ -6,6 +6,7 @@ use App\Models\State;
 use Illuminate\Http\Request;
 use App\Http\Requests\StateRequest;
 use App\Http\Resources\StateResource;
+use App\Http\Requests\CreateReligionRequest;
 
 class StateController extends Controller
 {
@@ -20,11 +21,11 @@ class StateController extends Controller
                 "data" => StateResource::collection($states), 
             ], 201);
     }
-    public function insert(Request $request){
+    public function insert(CreateReligionRequest $request){
         try{
-            $validate = $request->validate([
-                'name'=>'required|string|max:40|min:3|unique:states,name',
-            ]);
+            // $validate = $request->validate([
+            //     'name'=>'required|string|max:40|min:3|unique:states,name',
+            // ]);
             $state = new State();
             $state->name = $request->name;
             $state->save();
@@ -38,12 +39,12 @@ class StateController extends Controller
             ], 404);
         }
     }
-    public function update(Request $request,State $state)
+    public function update(CreateReligionRequest $request,State $state)
     {
         try{
-            $validate = $request->validate([
-                'name'=>'required|string|max:40|min:3|unique:states,name',
-            ]);
+            // $validate = $request->validate([
+            //     'name'=>'required|string|max:40|min:3|unique:states,name',
+            // ]);
             $state->name = $request->name;
             $state->save();
             return response()->json([

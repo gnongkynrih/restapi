@@ -22,7 +22,7 @@ class StateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'=>'required|string|max:40|min:3|unique:states,name,'.$this->id,
+            'name' => 'required|string|max:10|min:3',
         ];
     }
 }

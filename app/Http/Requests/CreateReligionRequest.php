@@ -15,7 +15,7 @@ class CreateReligionRequest extends FormRequest
     public function rules():array
     {
         return [
-            'name' => 'required|string|min:2|max:3',
+            'name' => 'required|string|min:2|max:30',
         ];
     }
     public function messages(){
