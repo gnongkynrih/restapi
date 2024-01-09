@@ -68,4 +68,5 @@ class ClassInfoController extends Controller
             ], 404);
         }
     }
+    
 }

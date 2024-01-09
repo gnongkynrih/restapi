@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StateController;
 use App\Http\Controllers\ReligionController;
 use App\Http\Controllers\ClassInfoController;
+use App\Http\Controllers\AdmissionUserController;
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
@@ -17,6 +18,7 @@ Route::controller(ReligionController::class)->group(function () {
     Route::post('/religion/store', 'store')->name('religion.store');
     Route::put('/religion/{religion}', 'edit')->name('religion.edit');
     Route::delete('/religion/{religion}', 'delete')->name('religion.delete');
+    Route::post('/religion/upload', 'storeImage')->name('religion.create');
 });
 
 Route::controller(ClassInfoController::class)->group(function () {
@@ -31,4 +33,8 @@ Route::controller(StateController::class)->group(function () {
     Route::post('/state', 'insert')->name('state.insert');
     Route::put('/state/{state}', 'update')->name('state.update');
     Route::delete('/state/{state}', 'destroy')->name('state.delete');
+});
+
+Route::controller(AdmissionUserController::class)->group(function(){
+    Route::post('/admission/register','register')->name('admission.register');
 });
