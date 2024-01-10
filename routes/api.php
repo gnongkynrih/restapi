@@ -6,6 +6,7 @@ use App\Http\Controllers\StateController;
 use App\Http\Controllers\ReligionController;
 use App\Http\Controllers\ClassInfoController;
 use App\Http\Controllers\AdmissionUserController;
+use App\Http\Controllers\AdmissionApplicationController;
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
@@ -37,4 +38,9 @@ Route::controller(StateController::class)->group(function () {
 
 Route::controller(AdmissionUserController::class)->group(function(){
     Route::post('/admission/register','register')->name('admission.register');
+    Route::post('/admission/login','login')->name('admission.login');
+});
+
+Route::controller(AdmissionApplicationController::class)->group(function(){
+    Route::post('/admission/personal','personal')->name('admission.personal');
 });

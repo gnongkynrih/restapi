@@ -31,3 +31,6 @@ and the default foreign key is tablename_id
 eg. admission_users table pk is id
 
 in the applicants table to link with admission users table the fk column will be admission_user_id
+
+php artisan make:migration add_column_a
+ddress_proof_to_table_applicants --table=applicants
