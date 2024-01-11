@@ -42,5 +42,7 @@ Route::controller(AdmissionUserController::class)->group(function(){
 });
 
 Route::controller(AdmissionApplicationController::class)->group(function(){
+    Route::post('/admission/parents','parentsInfo')->name('admission.parents');
     Route::post('/admission/personal','personal')->name('admission.personal');
+    Route::post('/admission/upload','uploadDocuments')->name('admission.upload');
 });

@@ -26,7 +26,7 @@ class PersonalInfoFormRequest extends FormRequest
             'last_name'=>'required|string|min:3|max:30',
             'middle_name'=>'nullable|string',
             'category'=>'required|string|max:3',
-            'gender'=>'required|string|max:6',
+            'gender'=>'nullable|string|max:6',
             'dob'=>'required|date',
             'state'=>'required|string|max:30',
             'nationality'=>'required|string|max:30',
