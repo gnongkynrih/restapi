@@ -29,7 +29,7 @@ return new class extends Migration
             $table->string('passport',80)->nullable();
             $table->string('nationality',10)->nullable();
             $table->string('community',25)->nullable();
-            $table->string('religion',25)->nullable();
+            $table->foreignId('religion_id')->constrained('religions');
             
             $table->timestamps();
         });

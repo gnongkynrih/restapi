@@ -30,7 +30,7 @@ class PersonalInfoFormRequest extends FormRequest
             'dob'=>'required|date',
             'state'=>'required|string|max:30',
             'nationality'=>'required|string|max:30',
-            'religion'=>'required|string|max:30',
+            'religion_id'=>'required|integer',
             'language'=>'required|string|max:30',
             'community'=>'required|string|max:30',
             'is_catholic'=>'nullable|string',

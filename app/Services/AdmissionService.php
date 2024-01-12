@@ -28,6 +28,21 @@ class AdmissionService
         if ($request->hasFile('passport')) {
             $applicant->passport = $this->saveImage('passport',$request);
         }
+        if ($request->hasFile('family_pic')) {
+            $applicant->family_pic = $this->saveImage('family_pic',$request);
+        }
+        if ($request->hasFile('baptism_certificate')) {
+            $applicant->baptism_certificate = $this->saveImage('baptism_certificate',$request);
+        }
+        if ($request->hasFile('father_id')) {
+            $applicant->father_id = $this->saveImage('father_id',$request);
+        }
+        if ($request->hasFile('mother_id')) {
+            $applicant->mother_id = $this->saveImage('mother_id',$request);
+        }
+        if ($request->hasFile('caste_certificate')) {
+            $applicant->caste_certificate = $this->saveImage('caste_certificate',$request);
+        }
         if ($request->hasFile('birth_certificate')) {
           $applicant->birth_certificate = $this->saveImage('birth_certificate',$request);
         }
