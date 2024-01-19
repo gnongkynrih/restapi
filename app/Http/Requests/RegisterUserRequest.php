@@ -23,7 +23,8 @@ class RegisterUserRequest extends FormRequest
     {
         return [
             'password'=>'required|string|min:6|max:14',
-            'mobile'=>'required|string|min:10|max:10|unique:admission_users'
+            'mobile'=>'required|string|min:10|max:10|unique:admission_users',
+            'email' => 'required|email|unique:admission_users'
         ];
     }
 

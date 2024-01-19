@@ -1,7 +1,10 @@
 <?php
 namespace App\Services;
 
+use Carbon\Carbon;
 use App\Models\Applicant;
+use Illuminate\Support\Str;
+use App\Models\ApplicationForm;
 use Carbon\Exceptions\Exception;
 
 class AdmissionService
@@ -54,5 +57,25 @@ class AdmissionService
       }catch(Exception $e){
         return false;
       }
+    }
+    public function submit($applicantId){
+      $applicant = Applicant::where('id','=',$applicantId)->first();
+      if($applicant == null){
+        return 'error';
+      }
+      //check if user already applied
+      if($applicant->app_no != null){
+        return "applied";
+      }
+      //generate the application no
+      $appno = new ApplicationForm();
+      $appno->applicant_id = $applicantId;
+      $appno->save();
+
+      $applicant->app_no = $appno->id;
+      $applicant->app_date = Carbon::now();
+      $applicant->status = 'submitted';
+      $applicant->save();
+      return $appno->id;
     }
 }

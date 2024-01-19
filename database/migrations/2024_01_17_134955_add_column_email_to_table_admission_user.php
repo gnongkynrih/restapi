@@ -11,11 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('applicants', function (Blueprint $table) {
-            $table->string('is_catholic','3')->default('No');
-            $table->string('balang',30)->nullable();
-            $table->foreignId('admission_user_id')->constrained('admission_users');
-            
+        Schema::table('admission_users', function (Blueprint $table) {
+            $table->string('email')->unique()->after('id');
         });
     }
 
@@ -24,7 +21,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('applicants', function (Blueprint $table) {
+        Schema::table('admission_users', function (Blueprint $table) {
             //
         });
     }

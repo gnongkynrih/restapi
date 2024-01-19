@@ -41,9 +41,13 @@ Route::controller(AdmissionUserController::class)->group(function(){
     Route::post('/admission/login','login')->name('admission.login');
 });
 
-Route::controller(AdmissionApplicationController::class)->group(function(){
-    Route::get('/admission/{id}','show')->name('admission.show');
-    Route::post('/admission/parents','parentsInfo')->name('admission.parents');
-    Route::post('/admission/personal','personal')->name('admission.personal');
-    Route::post('/admission/upload','uploadDocuments')->name('admission.upload');
+Route::group(['middleware' => ['auth:admission']], function () {
+    Route::controller(AdmissionApplicationController::class)->group(function(){
+        
+        Route::post('/admission/parents','parentsInfo')->name('admission.parents');
+        Route::post('/admission/personal','personal')->name('admission.personal');
+        Route::post('/admission/upload','uploadDocuments')->name('admission.upload');
+        Route::get('/admission/{id}','show')->name('admission.show');
+        Route::post('/admission/submit','submit')->name('admission.submit');
+    });
 });

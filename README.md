@@ -1,3 +1,7 @@
+jwt authentication
+https://jwt-auth.readthedocs.io/en/develop/
+https://dev.to/wenlopes/laravel-and-jwt-authentication-with-custom-model-4m3n
+
 github.com/gnongkynrih
 restapi
 

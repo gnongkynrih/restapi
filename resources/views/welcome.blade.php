@@ -17,5 +17,6 @@
     </head>
     <body class="antialiased">
         <h2>Welcome to Laravel</h2>
+        <h5>THis is a test</h5>
     </body>
 </html>

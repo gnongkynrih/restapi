@@ -96,4 +96,28 @@ class AdmissionApplicationController extends Controller
             ],404);
         }
     }
+    public function submit(Request $request){
+        try{
+            $res = $this->admissionService->submit($request->applicant_id);
+            if($res=="error"){
+                return response()->json([
+                    'message'=>'Application not submitted'
+                ],404);
+            }else if($res=="applied"){
+                return response()->json([
+                    'message'=>'You have already applied'
+                ],404);
+            }else{
+                //send email about successful application
+                return response()->json([
+                    'data'=>$res,
+                    'message'=>'Application submitted'
+                ],201);
+            }
+        }catch(Exception $e){
+            return response()->json([
+                'message'=>$e->getMessage()
+            ],404);
+        }
+    }
 }

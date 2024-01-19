@@ -12,11 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('applicants', function (Blueprint $table) {
-            $table->string('address_proof',80)->nullable();
-            $table->string('birth_certificate',80)->nullable();
-            $table->string('caste_certificate',80)->nullable();
-            $table->string('baptism_certificate',80)->nullable();
-            $table->string('language',200)->nullable();
+            $table->string('app_no',10)->nullable();
+            $table->date('app_date')->default(now());
+            $table->string('status',15)->default('pending');
         });
     }
 
